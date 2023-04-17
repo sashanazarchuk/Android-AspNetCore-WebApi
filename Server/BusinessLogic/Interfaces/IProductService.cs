@@ -11,6 +11,6 @@ namespace BusinessLogic.Interfaces
     {
         IEnumerable<ProductDTO> GetAll();
         ProductDTO? GetById(int id);
-        void Create(ProductDTO food);
+        void Create(ProductDTO product);
     }
 }

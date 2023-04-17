@@ -1,6 +1,7 @@
 ﻿using Data.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,11 @@ namespace Data.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>();
-
+            modelBuilder.Entity<Categories>();
+            modelBuilder.Entity<User>();
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Categories> Categories { get; set; }   
+        public DbSet<User> User { get; set; }   
     }
 }

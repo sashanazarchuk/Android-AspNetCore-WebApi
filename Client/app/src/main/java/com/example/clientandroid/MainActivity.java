@@ -2,51 +2,73 @@ package com.example.clientandroid;
 
 import android.os.Bundle;
 
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+
+import com.example.clientandroid.constans.Urls;
+import com.example.clientandroid.models.Category;
+import com.example.clientandroid.services.CategoryAdapter;
 import com.example.clientandroid.services.NetworkService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
+    private CategoryAdapter mAdapter;
+    private List<String> mData;
+    private List<String> mImageUrls;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView textView = findViewById(R.id.textView);
+        mRecyclerView = findViewById(R.id.recyclerview_main);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mData = new ArrayList<>();
+        mImageUrls = new ArrayList<>();
+
+        mAdapter = new CategoryAdapter(mData, mImageUrls);
+        mRecyclerView.setAdapter(mAdapter);
 
         NetworkService.getInstance()
                 .getApi()
-                .getAllProducts()
-                .enqueue(new Callback<List<Product>>() {
+                .getList()
+                .enqueue(new Callback<List<Category>>() {
                     @Override
-                    public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                        List<Product> products = response.body();
+                    public void onResponse(@NonNull Call<List<Category>> call, @NonNull Response<List<Category>> response) {
 
-                        for (Product product : products) {
-                            textView.append(String.valueOf(product.getId()) + "\n");
-                            textView.append("Name: "+product.getName() + "\n");
-                            textView.append("Description: "+product.getDescription() + "\n");
-                            textView.append("Price: "+String.valueOf(product.getPrice()) + " UAH" + "\n\n");
+                        List<Category> categories = response.body();
+
+                        for (Category item : categories){
+                            String url = Urls.BASIC_URL+item.getImage();
+                            mAdapter.addData(item.getName(), url);
+
                         }
+
                     }
 
                     @Override
-                    public void onFailure(@NonNull Call<List<Product>> call, @NonNull Throwable t) {
-
-                        textView.append("Error occurred while getting request!");
+                    public void onFailure(Call<List<Category>> call, Throwable t) {
                         t.printStackTrace();
                     }
                 });
+
     }
+
+
 }
+

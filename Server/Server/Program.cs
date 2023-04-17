@@ -33,6 +33,7 @@ builder.Services.AddCors(options =>
 
 //add custom service
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoriesService, CategoryService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 

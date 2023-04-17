@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using BusinessLogic.DTOs;
+using Data.Model;
 using Server.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,8 @@ namespace BusinessLogic.Profiles
         {
             CreateMap<ProductDTO, Product>();
             CreateMap<Product, ProductDTO>();
-
+            CreateMap<Categories, CategoryDTO>();
+            CreateMap<CategoryDTO, Categories>();
  
         }
     }
