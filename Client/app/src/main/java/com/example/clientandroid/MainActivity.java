@@ -24,7 +24,7 @@ import retrofit2.Response;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private CategoryAdapter mAdapter;
     private List<String> mData;
