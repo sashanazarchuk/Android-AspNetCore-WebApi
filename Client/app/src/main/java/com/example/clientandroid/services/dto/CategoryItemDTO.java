@@ -1,9 +1,9 @@
-package com.example.clientandroid.models;
+package com.example.clientandroid.services.dto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Category {
+public class CategoryItemDTO {
     @SerializedName("id")
     @Expose
     private int id;
@@ -37,6 +37,5 @@ public class Category {
     public void setName(String title) {
         this.name = title;
     }
-
 
 }

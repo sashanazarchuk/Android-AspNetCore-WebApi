@@ -1,6 +1,5 @@
 package com.example.clientandroid.services;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -67,7 +66,7 @@ public class CategoryCreateActivity extends BaseActivity {
         model.setImageBase64(uriGetBase64(uri));
 
         NetworkService.getInstance()
-                .getApi()
+                .getCategoriesApi()
                 .create(model)
                 .enqueue(new Callback<Void>() {
                     @Override

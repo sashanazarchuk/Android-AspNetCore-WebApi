@@ -3,6 +3,7 @@ using BusinessLogic.DTOs;
 using BusinessLogic.Interfaces;
 using Data.Data;
 using Data.Model;
+using Microsoft.EntityFrameworkCore;
 using Server.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace BusinessLogic.Services
 {
     public class CategoryService : ICategoriesService
     {
+
         private readonly ShopDbContext context;
         private readonly IMapper mapper;
 
@@ -34,6 +36,16 @@ namespace BusinessLogic.Services
             var category =context.Categories.Find(id);
             if (category == null) return;
             context.Categories.Remove(category);
+            context.SaveChanges();
+        }
+
+        public void Edit(CategoryDTO category)
+        {
+            var data = context.Categories.AsNoTracking().FirstOrDefault(w => w.Id == category.Id);
+
+            if (data == null) return;
+
+            context.Categories.Update(mapper.Map<Categories>(category));
             context.SaveChanges();
         }
 

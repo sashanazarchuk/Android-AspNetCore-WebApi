@@ -14,5 +14,6 @@ namespace BusinessLogic.Interfaces
         CategoryDTO? GetById(int id);
         void Create(CategoryDTO category);
         void Delete(int id);
+        void Edit(CategoryDTO category);
     }
 }

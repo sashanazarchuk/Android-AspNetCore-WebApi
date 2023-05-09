@@ -47,7 +47,19 @@ namespace Server.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete([FromRoute] int id)
         {
+            var category = categoryservice.GetById(id);
+
+            if (category == null) return NotFound();
+
             categoryservice.Delete(id);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public IActionResult Edit([FromBody] CategoryDTO category)
+        {
+            categoryservice.Edit(category);
 
             return Ok();
         }
