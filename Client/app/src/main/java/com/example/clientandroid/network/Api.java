@@ -1,7 +1,7 @@
-package com.example.clientandroid;
+package com.example.clientandroid.network;
 
-import com.example.clientandroid.services.dto.CategoryCreateDTO;
-import com.example.clientandroid.services.dto.CategoryItemDTO;
+import com.example.clientandroid.services.dto.category.CategoryCreateDTO;
+import com.example.clientandroid.services.dto.category.CategoryItemDTO;
 
 import java.util.List;
 

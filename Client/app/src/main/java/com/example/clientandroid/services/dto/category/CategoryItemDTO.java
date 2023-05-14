@@ -1,4 +1,4 @@
-package com.example.clientandroid.services.dto;
+package com.example.clientandroid.services.dto.category;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

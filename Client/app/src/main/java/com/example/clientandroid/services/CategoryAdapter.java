@@ -10,9 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.clientandroid.R;
-import com.example.clientandroid.application.HomeApplication;
 import com.example.clientandroid.constans.Urls;
-import com.example.clientandroid.services.dto.CategoryItemDTO;
+import com.example.clientandroid.services.dto.category.CategoryItemDTO;
 
 import java.util.List;
 

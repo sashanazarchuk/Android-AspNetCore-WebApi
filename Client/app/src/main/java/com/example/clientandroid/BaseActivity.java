@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.clientandroid.application.HomeApplication;
 import com.example.clientandroid.services.CategoryCreateActivity;
 
 public class BaseActivity extends AppCompatActivity {
@@ -14,6 +15,8 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
+        menu.setGroupVisible(R.id.group_anonimus, !HomeApplication.getInstance().isAuth());
+        menu.setGroupVisible(R.id.group_auth, HomeApplication.getInstance().isAuth());
         return true;
     }
     @Override

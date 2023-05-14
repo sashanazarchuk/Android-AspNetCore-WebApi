@@ -14,7 +14,7 @@ import com.example.clientandroid.BaseActivity;
 import com.example.clientandroid.ChangeImageActivity;
 import com.example.clientandroid.MainActivity;
 import com.example.clientandroid.R;
-import com.example.clientandroid.services.dto.CategoryCreateDTO;
+import com.example.clientandroid.services.dto.category.CategoryCreateDTO;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.ByteArrayOutputStream;

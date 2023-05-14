@@ -1,4 +1,4 @@
-package com.example.clientandroid.services.dto;
+package com.example.clientandroid.services.dto.category;
 
 public class CategoryUpdateDTO {
     private int id;

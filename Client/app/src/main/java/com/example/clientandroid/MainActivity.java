@@ -1,8 +1,6 @@
 package com.example.clientandroid;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -16,8 +14,7 @@ import com.example.clientandroid.application.HomeApplication;
 import com.example.clientandroid.constans.Urls;
 import com.example.clientandroid.services.CategoryAdapter;
 import com.example.clientandroid.services.NetworkService;
-import com.example.clientandroid.services.OnCategoryClickListener;
-import com.example.clientandroid.services.dto.CategoryItemDTO;
+import com.example.clientandroid.services.dto.category.CategoryItemDTO;
 
 
 import java.util.ArrayList;

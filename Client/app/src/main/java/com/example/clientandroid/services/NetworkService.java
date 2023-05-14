@@ -1,6 +1,8 @@
 package com.example.clientandroid.services;
 
-import com.example.clientandroid.Api;
+import com.example.clientandroid.interceptor.JWTInterceptor;
+import com.example.clientandroid.network.AccountApi;
+import com.example.clientandroid.network.Api;
 import com.example.clientandroid.constans.Urls;
 
 import java.util.concurrent.TimeUnit;
@@ -18,6 +20,7 @@ public class NetworkService {
                 .connectTimeout(20, TimeUnit.SECONDS) // Таймаут з'єднання
                 .writeTimeout(20, TimeUnit.SECONDS) // Таймаут на запис даних
                 .readTimeout(20, TimeUnit.SECONDS) // Таймаут на отримання даних
+                .addInterceptor(new JWTInterceptor())
                 .build();
 
         retrofit = new Retrofit.Builder()
@@ -36,5 +39,8 @@ public class NetworkService {
 
     public Api getCategoriesApi() {
         return retrofit.create(Api.class); // Створюємо інтерфейс Api для виконання запитів
+    }
+    public AccountApi getAccountApi() {
+        return retrofit.create(AccountApi.class);
     }
 }
